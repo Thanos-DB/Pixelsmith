@@ -120,6 +120,12 @@ body {
   padding: 20px;
   font-size: 0;
 }
+.results-carousel .img-overlay {
+  margin: 5px;
+  width: 50%; /* Initial overlay width */
+  overflow: hidden;
+  font-size: 0;
+}
 
 .results-carousel video {
   margin: 0;
@@ -133,5 +139,53 @@ body {
   font-size: smaller;
 }
 
+.slider-container {
+  width: 100%; /* Adjust based on your needs */
+  height: auto; /* Height is auto to maintain aspect ratio based on content */
+  margin: auto; /* Helps in further centering if needed */
+  clip-path: inset(0 0 0 0);
+  overflow: hidden; 
+}
+.slider-container img {
+  width: 100%; /* Ensure the image spans the full width of its container */
+  height: 100%; /* Make the image cover the full height of its container */
+  display: block; /* Removes bottom margin/gap */
+}
 
+.slider-container-bg {
+  position: absolute;
+  width: 100%; /* Adjust based on your needs */
+  height: auto; /* Height is auto to maintain aspect ratio based on content */
+  margin: auto; /* Helps in further centering if needed */
+  clip-path: inset(0 0 0 0);
+  overflow: hidden; 
+}
 
+#slider {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  height: 2px;
+  outline: none;
+}
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4px;
+  height: 600px;
+  background: hsl(213, 100%, 47%, 0.8);
+  cursor: pointer;
+  border-radius: 4px;
+}
+#slider::-moz-range-thumb {
+  width: 20px;
+  height: 8px;
+  background: #000;
+  cursor: pointer;
+  border-radius: 4px;
+}
