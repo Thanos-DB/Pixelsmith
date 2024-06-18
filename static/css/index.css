@@ -177,7 +177,7 @@ body {
   -webkit-appearance: none;
   appearance: none;
   width: 4px;
-  height: 600px;
+  height: 960px;
   background: hsl(213, 100%, 47%, 0.8);
   cursor: pointer;
   border-radius: 4px;
@@ -188,4 +188,78 @@ body {
   background: #000;
   cursor: pointer;
   border-radius: 4px;
+}
+
+.mini-slider-container {
+  position: relative;
+  width: 80%; /* This can be adjusted based on your design needs */
+  margin: 20px auto; /* Ensures some space around the slider */
+}
+
+.mini-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Full width to center the image properly */
+  text-align: center; /* Centers the image horizontally */
+}
+
+.mini-slider {
+  display: flex;
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-50%);
+  }
+}
+
+.mini-slider img {
+  width: 150px;
+  cursor: pointer;
+}
+
+.display {
+  width: 100%; /* Full width to center the image properly */
+  text-align: center; /* Centers the image horizontally */
+  margin-top: 20px; /* Space from the slider */
+}
+
+.display img {
+  max-width: 100%; /* Ensures image does not overflow its container */
+  height: auto; /* Maintains aspect ratio */
+  display: inline-block; /* Allows for vertical centering */
+  vertical-align: middle; /* Aligns vertically */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds some shadow for better visibility */
+}
+
+/* Helper element for vertical centering */
+.display::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  z-index: 100;
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
 }

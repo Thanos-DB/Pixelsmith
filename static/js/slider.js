@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
 function slideMove() {
   var slider = document.getElementById('slider');
   var reveal = document.getElementById('reveal');
@@ -21,10 +20,30 @@ function slideMove() {
   reveal.style.clipPath = 'inset(0 0 0 ' + sliderValue + '%)';
 }
 
+// document.getElementById('slider').addEventListener('input', slideMove);
 
-// const slider = document.getElementById('slider');
-// const topImageDiv = document.querySelectorAll('.slider-image')[0];
+window.onload = function() {
+  var image = document.getElementById('mainImage');
+  var slider = document.getElementById('slider');
 
-// slider.oninput = function() {
-//     topImageDiv.style.left = `${this.value}%`;
-// }
+  function adjustThumbHeight() {
+      var imageHeight = image.clientHeight; // Get the height of the image
+      var thumbHeight = imageHeight;  // Let's say we want the thumb to be 50% of the image height
+
+      // Create a style element to hold the rule because pseudo-elements can't be styled directly via JavaScript
+      var styleSheet = document.createElement('style');
+      document.head.appendChild(styleSheet);
+      styleSheet.sheet.insertRule(
+          `#slider::-webkit-slider-thumb { height: ${thumbHeight}px !important; }`, 
+          0
+      );
+  }
+
+  // Adjust the thumb height on image load
+  image.onload = adjustThumbHeight;
+
+  // If the image is already loaded (e.g., cached), manually trigger the height adjustment
+  if (image.complete) {
+      adjustThumbHeight();
+  }
+};
