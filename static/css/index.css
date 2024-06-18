@@ -205,8 +205,12 @@ body {
 
 .mini-slider {
   display: flex;
+  /* width: calc(100% * (7 / 2)); Example for 3 unique slides */
+  width: 220%;
   animation: slide 20s linear infinite;
 }
+
+
 
 @keyframes slide {
   from {
