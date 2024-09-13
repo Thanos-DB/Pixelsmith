@@ -75,13 +75,11 @@ color: rgba(0,0,0,.7);
     justify-content: flex-start; /* Let images flow naturally without centering */
     overflow: hidden;
     width: 100%; /* Expand to the container's width */
-    max-width: 800px; /* You can still set a max width if necessary */
 }
 
 .images-selection img {
     width: 150px;
     height: 150px;
-    margin: 0 10px;
     cursor: pointer;
 }
 
@@ -125,10 +123,18 @@ color: rgba(0,0,0,.7);
 
 .carousel-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    transition: transform 0s linear; /* Continuous smooth scrolling with no snapping */
+    overflow: hidden; /* Hide overflow to show one image at a time */
+    width: max-content; /* Ensure the container expands to fit all images */
 }
+
+.carousel-container img {
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 150px;
+    height: 150px;
+    margin-right: 10px; /* Optional: Add spacing between images */
+}
+
 
 .arrow {
     position: absolute;
@@ -175,3 +181,23 @@ color: rgba(0,0,0,.7);
     visibility: hidden;
     background-repeat: no-repeat;
 }
+
+.mini-slider-container {
+    position: relative;
+    width: 80%; /* This can be adjusted based on your design needs */
+    margin: 20px auto; /* Ensures some space around the slider */
+  }
+  
+  .mini-slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Full width to center the image properly */
+    text-align: center; /* Centers the image horizontally */
+  }
+  
+  .mini-slider {
+    display: flex;
+    /* width: calc(100% * (7 / 2)); Example for 3 unique slides */
+    width: 220%;
+    animation: slide 20s linear infinite;
+  }
