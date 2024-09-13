@@ -1,0 +1,177 @@
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.section {
+    padding: 3rem 1.5rem;
+    }
+
+.hero {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+.hero.is-light {
+color: rgba(0,0,0,.7);
+}
+
+.hero-body {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3rem 1.5rem;
+    }
+
+.container {
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+}
+
+
+.columns {
+    margin-left: -.75rem;
+    margin-right: -.75rem;
+    margin-top: -.75rem;
+}
+
+.columns.is-centered {
+    justify-content: center;
+}
+
+.column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: .75rem;
+}
+
+.column.is-four-fifths, .column.is-four-fifths-tablet {
+    flex: none;
+    width: 80%;
+    }
+
+.buttons {
+    margin: 20px 0;
+}
+
+.buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.images-selection {
+    display: flex;
+    justify-content: flex-start; /* Let images flow naturally without centering */
+    overflow: hidden;
+    width: 100%; /* Expand to the container's width */
+    max-width: 800px; /* You can still set a max width if necessary */
+}
+
+.images-selection img {
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.images-comparison {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border: 1px solid #000;
+    overflow: hidden;
+    width: 100%; /* Ensure the container expands properly */
+    max-width: 800px; /* Adjust the max width */
+    height: auto;
+}
+
+.background-image, .foreground-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the images horizontally and vertically */
+    object-fit: cover;
+    width: auto; /* Maintain aspect ratio */
+    height: 100%; /* Ensure it fills the container */
+}
+
+.foreground-image {
+    clip-path: inset(0 100% 0 0); /* Initially hides the foreground image */
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+    background-color: black;
+    cursor: ew-resize;
+    z-index: 2;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Center the arrows vertically */
+    cursor: pointer;
+    font-size: 2em;
+    z-index: 1;
+}
+
+.arrow.left {
+    left: 10px; /* Adjust positioning as necessary */
+}
+
+.arrow.right {
+    right: 10px; /* Adjust positioning as necessary */
+}
+
+.background-text-box, .foreground-text-box {
+    position: absolute;
+    top: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semitransparent black */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.background-text-box {
+    left: 10px;
+}
+
+.foreground-text-box {
+    right: 10px;
+}
+
+/* Zoom lens styles */
+.zoom-lens {
+    position: absolute;
+    border: 2px solid #000;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* This makes the lens circular */
+    visibility: hidden;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,84 @@
+/* Global font family */
+body {
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+.has-text-centered {
+text-align: center!important;
+}
+
+.title {
+    color: #363636;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+}
+
+.title.is-1 {
+    font-size: 3rem;
+}
+
+.title.is-3 {
+    font-size: 2rem;
+}
+
+.is-size-5 {
+    font-size: 1.25rem!important;
+    }
+  
+/* Footer icon link font size */
+.footer .icon-link {
+font-size: 25px;
+color: #000;
+}
+
+/* Teaser section font family */
+.teaser {
+font-family: 'Google Sans', sans-serif;
+}
+
+/* Publication title font family */
+.publication-title {
+font-family: 'Google Sans', sans-serif;
+}
+
+/* Publication authors font family */
+.publication-authors {
+font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors a {
+    color: hsl(204, 86%, 53%) !important;
+ }
+ 
+ .publication-authors a:hover {
+     text-decoration: underline;
+ }
+
+/* Publication venue font details */
+.publication-venue {
+font-weight: bold;
+color: #555;
+width: fit-content;
+}
+
+/* Publication awards font details */
+.publication-awards {
+font-weight: bolder;
+color: #ff3860;
+width: fit-content;
+}
+
+/* Equal contributors section font size */
+.eql-cntrb { 
+font-size: smaller;
+}
+
+/* Dnerf section small-caps variant */
+.dnerf {
+font-variant: small-caps;
+}
+
+.has-text-justified {
+    text-align: justify!important;
+    }
