@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="./css/fontawesome.all.min.css">
     <link rel="stylesheet" href="./css/containers.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -157,8 +170,21 @@
                     <div class="static-carousel-wrapper">
                         <div class="static-carousel-container">
                             <div class="arrow left" id="prev">&#10094;</div>
+                            <div id="static-carousel-caption">First, given a conditional prompt $c$, we sample the latent variable $\tilde{z}_0$ and decode it into pixel space as $\tilde{x} = \mathcal{D}_\theta(\tilde{z}_0)$. 
+                                <br>In this step, we generate an image with a base resolution of $1024^2$ using StableDiffusionXL.</div>
                             <img id="static-carousel-id" src="./images/steps/step1.png" alt="step1">
                             <div class="arrow right" id="next">&#10095;</div>
+
+                                <!-- Hidden divs containing the images and captions -->
+                            <div id="sliderData" style="display: none;">
+                                <div data-src="./images/steps/step1.png" data-caption="First, given a conditional prompt $c$, we sample the latent variable $\tilde{z}_0$ and decode it into pixel space as $\tilde{x} = \mathcal{D}_\theta(\tilde{z}_0)$. In this step, we generate an image with a base resolution of $1024^2$ using StableDiffusionXL."></div>
+                                <div data-src="./images/steps/step2.png" data-caption="We apply an upsampling algorithm to increase the resolution of the image. The upsampling algorithm leads to a blurred output and lack of additional content. This upsampled image $x^{guid}$ will serve as guidance for our generative process."></div>
+                                <div data-src="./images/steps/step3.png" data-caption="We encode the upsampled image in the VAE's latent space $z_0^{guid}=\mathcal{E_\theta}(x^{guid})$. We can easily sample each latent variable of the diffusion process through the forward diffusion process $z^{guid}_t \sim q(z^{guid}_t|z^{guid}_0)$."></div>
+                                <div data-src="./images/steps/step4.png" data-caption="The generative process starts from $z_T \sim \mathcal{N}(0,I)$, which has the same dimensions as $z^{guid}_T$. The Slider’s position , indicated by a blue line, determines whether the guidance mechanism  or unguided patch denoising will be applied. In the unguided mode, each patch is based solely on the previous one and the text condition, similar to a conventional patch denoising process. The Slider allows control over whether a generated image will be slightly or significantly altered compared to the previous resolution."></div>
+                                <div data-src="./images/steps/step5a.png" data-caption="At each timestep, random patches are selected for denoising. This process is repeated until the entire latent space is denoised. Since each pixel is denoised only once per timestep, we track which areas have been denoised and avoid selecting those areas again."></div>
+                                <div data-src="./images/steps/step5b.png" data-caption="The guidance mechanism fuses the $\hat{z}^{guid}_t$, $\hat{z}_t$ and $\hat{z}^{guid}_{t-1}$ random patches to generate the $\hat{z}_{t-1}$ patch.First, the $\hat{z}^{guid}_t$ and $\hat{z}_t$ patches are transformed to the Fourier space using a Fast Fourier Transformation ($\mathcal{FFT}$), where their phases $\phi$ are averaged. The phase is then combined with the amplitude, which is then transformed back to the spatial domain."></div>
+                                <div data-src="./images/steps/step5c.png" data-caption="One of the main reasons that patch based image generation in diffusion models suffers from artifacts at higher resolutions is that while denoising patches, each patch contains the same text prompt as the prompt condition for the overall image. To address this, we combine the sampled $\hat{z}^{iFFT}_{t}$ with the image guidance $\hat{z}^{guid}_{t}$ using a chess-like mask"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -233,5 +259,6 @@
 <script src="./js/zoom.js"></script>
 <script src="./js/carousel.js"></script>
 <script src="./js/static_carousel.js"></script>
+
 </body>
 </html>
