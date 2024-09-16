@@ -5,7 +5,8 @@ const leftHalfGiga = document.getElementById("giga-lens-left");
 const rightHalfGiga = document.getElementById("giga-lens-right");
 
 // Set the zoom factor for the left image
-let leftZoomFactor = 16; // Adjust this value to control the left-side zoom level
+let leftZoomFactor = 8; // Adjust this value to control the left-side zoom level
+let rightZoomFactor = 1; // Adjust this value to control the left-side zoom level
 
 // Preload high-resolution images using JavaScript
 const highResImageGiga = new Image();
@@ -75,8 +76,8 @@ function moveLensGiga(event) {
     let leftImageY = percentY * highResComparisonImageGiga.height * leftZoomFactor;
 
     // Right image (high-res)
-    let rightImageX = percentX * highResImageGiga.width;
-    let rightImageY = percentY * highResImageGiga.height;
+    let rightImageX = percentX * highResImageGiga.width * rightZoomFactor;
+    let rightImageY = percentY * highResImageGiga.height * rightZoomFactor;
 
     // Adjust background positions
     // For left half, shift background to align cursor with the right edge of the left half
@@ -93,7 +94,7 @@ function moveLensGiga(event) {
     leftHalfGiga.style.backgroundPosition = `${leftZoomX}px ${leftZoomY}px`;
 
     rightHalfGiga.style.backgroundImage = `url(${highResImageGiga.src})`;
-    rightHalfGiga.style.backgroundSize = `${highResImageGiga.width}px ${highResImageGiga.height}px`;
+    rightHalfGiga.style.backgroundSize = `${highResImageGiga.width * rightZoomFactor}px ${highResImageGiga.height * rightZoomFactor}px`;
     rightHalfGiga.style.backgroundPosition = `${rightZoomX}px ${rightZoomY}px`;
 }
 
