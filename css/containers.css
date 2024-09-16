@@ -155,6 +155,14 @@ color: rgba(0,0,0,.7);
     object-fit: cover;
 }
 
+#static-carousel-caption {
+    width: 100%; /* Ensure it spans the entire width of the container */
+    height: 100px; /* Fixed height for the caption */
+    overflow: hidden; /* Hide overflow if the text exceeds the container height */
+    /* padding: 10px; */
+    box-sizing: border-box; /* Ensure padding doesn't affect height */
+}
+
 .arrow {
     position: absolute;
     top: 50%;
