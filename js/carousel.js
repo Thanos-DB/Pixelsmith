@@ -58,13 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
-
-
-
-
-
 // Function to select an image from the carousel
 function selectImage(img) {
     const backgroundImage = img.getAttribute('data-low-res');

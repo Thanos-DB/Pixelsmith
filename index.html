@@ -21,6 +21,16 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- <link rel="preload" href="./images/girl_giga.jpg" as="image">
+    <link rel="preload" href="./images/small_world_giga.jpg" as="image">
+    <link rel="preload" href="./images/jewels_giga.jpg" as="image">
+    <link rel="preload" href="./images/fantasy_forest_giga.jpg" as="image">
+    <link rel="preload" href="./images/heaven_giga.jpg" as="image">
+    <link rel="preload" href="./images/mars_landscape_giga.jpg" as="image">
+    <link rel="preload" href="./images/van_gogh_giga.jpg" as="image">
+    <link rel="preload" href="./images/waterfall_giga.jpg" as="image"> -->
+    <link rel="preload" href="./images/galaxy_giga.jpg" as="image">
 </head>
 <body>
 
@@ -111,7 +121,7 @@
                     <h2 class="title is-3">One GPU is Enough!</h2>
                     <!-- Carousel Section -->
                     <p>
-                        With <strong>Pixelsmith</strong>, you can scale pre-trained generative models to <br> effortlessly generate gigapixel-scale images on a single <u>Nvidia RTX 3090</u>. 
+                        With <strong>Pixelsmith</strong>, you can scale pre-trained generative models to effortlessly <br> generate gigapixel-scale images on a <u>single Nvidia RTX 3090 (24Gb VRAM)</u>. 
                         <br>        <br>       
                         Select an image:          
                         <br>        <br>  
@@ -208,7 +218,7 @@
                     <img src="./images/multi_step.png" alt="Image Multi" style="width: 80%; height: auto;">
                     <br><br>
                     <p>
-                        We present an example of a two-step image generation process. <br>
+                        We present a few examples of a two-step image generation process. <br>
                         Zoom-in to visualize progressively enhanced details (e.g. face, hands, hair)
                         <br><br>       
                     </p>
@@ -241,6 +251,33 @@
 </div>
 
 
+<div class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    
+                    <h2 class="title is-3">Gigapixel images on a single GPU</h2>
+                    <p>
+                        Move the cursor over the image to zoom-in the image. <br>The left side of the lens displays the 1024×1024 pixel image, while the right side showcases the 31,616×31,616 pixel gigapixel image.​<br>
+                        Note: Loading the gigapixel image may take a little extra time.
+                    </p>
+                    <div id="giga-container" class="giga-container">
+                        <img id="giga-image" src="./images/galaxy_hd.jpg" alt="Gigapixel image" style="width:100%; height:100%;">
+                    </div>
+                    <div id="giga-lens" class="giga-zoom-lens">
+                        <div id="giga-lens-divider"></div> 
+                        <div id="giga-lens-left" style="position:absolute; width:50%; height:100%; left:0; top:0;"></div>
+                        <div id="giga-lens-right" style="position:absolute; width:50%; height:100%; right:0; top:0;"></div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop">
       <h2 class="title">BibTeX</h2>
@@ -257,6 +294,7 @@
 
 <script src="./js/load-website.js"></script>
 <script src="./js/zoom.js"></script>
+<script src="./js/zoom-giga.js"></script>
 <script src="./js/carousel.js"></script>
 <script src="./js/static_carousel.js"></script>
 

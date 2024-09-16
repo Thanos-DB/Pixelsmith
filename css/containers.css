@@ -214,17 +214,73 @@ color: rgba(0,0,0,.7);
     width: 80%; /* This can be adjusted based on your design needs */
     margin: 20px auto; /* Ensures some space around the slider */
   }
-  
-  .mini-slider-wrapper {
+
+.mini-slider-wrapper {
+position: relative;
+overflow: hidden;
+width: 100%; /* Full width to center the image properly */
+text-align: center; /* Centers the image horizontally */
+}
+
+.mini-slider {
+display: flex;
+/* width: calc(100% * (7 / 2)); Example for 3 unique slides */
+width: 220%;
+animation: slide 20s linear infinite;
+}
+
+
+.giga-container {
     position: relative;
-    overflow: hidden;
-    width: 100%; /* Full width to center the image properly */
-    text-align: center; /* Centers the image horizontally */
-  }
-  
-  .mini-slider {
     display: flex;
-    /* width: calc(100% * (7 / 2)); Example for 3 unique slides */
-    width: 220%;
-    animation: slide 20s linear infinite;
-  }
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border: 1px solid #000;
+    overflow: hidden;
+    width: 100%; /* Ensure the container expands properly */
+    max-width: 1024px; /* Adjust the max width */
+    height: auto;
+}
+
+.giga-zoom-lens {
+    position: absolute;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 400px; /* Width of the lens */
+    height: 400px; /* Height of the lens */
+    overflow: hidden;
+    visibility: hidden;
+    display: flex;
+    pointer-events: none; /* Add this line */
+}
+
+#giga-zoom-lens-left, #giga-zoom-lens-right {
+    width: 50%;
+    height: 100%;
+    background-repeat: no-repeat;
+    pointer-events: none; /* Add this line */
+}
+
+#giga-lens-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    pointer-events: none; /* Add this line */
+}
+
+#giga-zoom-lens-left {
+    border-right: 1px solid rgba(255, 255, 255, 0.7); /* Optional line between the halves */
+}
+
+#giga-zoom-lens-right {
+    border-left: 1px solid rgba(255, 255, 255, 0.7); /* Optional line between the halves */
+}
+
+.giga-zoom-lens, #giga-zoom-lens-left, #giga-zoom-lens-right, #giga-lens-divider {
+    pointer-events: none;
+}

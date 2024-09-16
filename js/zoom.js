@@ -10,13 +10,10 @@ function changeImage(imageSrc) {
 function moveLens(event) {
     let containerRect = container2.getBoundingClientRect();
     let lensSize = lens.getBoundingClientRect();
-    // let x = event.clientX - containerRect.left - (lensSize.width / 2);
-    // let y = event.clientY - containerRect.top - (lensSize.height / 2);
 
     let x = event.clientX - containerRect.left;
     let y = event.clientY - containerRect.top;
 
-    // Boundary check to keep the lens within the image
     // Boundary check to keep the lens within the image
     if (x > containerRect.width - lensSize.width / 2) x = containerRect.width - lensSize.width / 2;
     if (x < lensSize.width / 2) x = lensSize.width / 2;
