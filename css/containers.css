@@ -135,6 +135,25 @@ color: rgba(0,0,0,.7);
     margin-right: 10px; /* Optional: Add spacing between images */
 }
 
+.static-carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.static-carousel-container {
+    display: inline-block;
+    position: relative;
+  }
+
+#static-carousel {
+    display: block;
+    max-width: 100%; /* Adjust image size to fit container */
+    height: auto;
+    object-fit: cover;
+}
 
 .arrow {
     position: absolute;
@@ -146,11 +165,11 @@ color: rgba(0,0,0,.7);
 }
 
 .arrow.left {
-    left: 10px; /* Adjust positioning as necessary */
+    left: -40px; /* Adjust positioning if needed */
 }
 
 .arrow.right {
-    right: 10px; /* Adjust positioning as necessary */
+    right: -40px; /* Adjust positioning if needed */
 }
 
 .background-text-box, .foreground-text-box {
