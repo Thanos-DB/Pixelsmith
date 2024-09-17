@@ -157,13 +157,13 @@ function selectImage2(image, buttonElement) {
 
     // Handle button state: Remove 'is-selected' from the previously active button and add it to the current button
     if (activeButton) {
-        activeButton.classList.remove('is-light'); // Remove 'is-selected' from previous button
-        activeButton.classList.add('is-dark'); // Add 'is-dark' back to the previous button
+        activeButton.classList.remove('is-dark'); 
+        activeButton.classList.add('is-light');
     }
     
     // Add 'is-selected' class to the currently pressed button
-    buttonElement.classList.remove('is-dark'); // Remove 'is-dark' from current button
-    buttonElement.classList.add('is-light'); // Add 'is-selected' to current button
+    buttonElement.classList.add('is-dark'); 
+    buttonElement.classList.remove('is-light');
 
 
     // Update the reference to the active button
@@ -183,13 +183,13 @@ function changeImageResolution(resolution, buttonElement) {
 
     // Handle button state: Remove 'is-selected' from the previously active button and add it to the current button
     if (activeButton2) {
-        activeButton2.classList.remove('is-light'); // Remove 'is-selected' from previous button
-        activeButton2.classList.add('is-dark'); // Add 'is-dark' back to the previous button
+        activeButton2.classList.remove('is-dark');
+        activeButton2.classList.add('is-light'); 
     }
     
     // Add 'is-selected' class to the currently pressed button
-    buttonElement.classList.remove('is-dark'); // Remove 'is-dark' from current button
-    buttonElement.classList.add('is-light'); // Add 'is-selected' to current button
+    buttonElement.classList.remove('is-light');
+    buttonElement.classList.add('is-dark');
 
 
     // Update the reference to the active button
