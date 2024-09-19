@@ -25,7 +25,7 @@ function cloneImages() {
     totalOriginalSlides = slides.length;
 
     // Clone each slide three times to ensure a minimum of 3 clones
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 7; i++) {
         slides.forEach(slide => {
             const clone = slide.cloneNode(true);
             carousel.appendChild(clone);
@@ -110,6 +110,16 @@ const imagesResolutions = {
         medium: './images/turian_2048.jpg',
         high: './images/turian_4096.jpg'
     },
+    gladiator: {
+        low: './images/gladiator_1024.png',
+        medium: './images/gladiator_2048.png',
+        high: './images/gladiator_4096.png'
+    },
+    origami: {
+        low: './images/origami_1024.png',
+        medium: './images/origami_2048.png',
+        high: './images/origami_4096.png'
+    },
     // Add more images and their respective resolutions here
 };
 
@@ -151,8 +161,12 @@ function selectImage2(image, buttonElement) {
     // Display the selected image at the current resolution
     if (image === 'image1') {
         document.getElementById("main-image").src = './images/emma_' + currentResolution + '.jpg';
-    } else if (image === 'image2') {
+    } 
+    else if (image === 'image2') {
         document.getElementById("main-image").src = './images/turian_' + currentResolution + '.jpg';
+    } 
+    else if (image === 'image3') {
+        document.getElementById("main-image").src = './images/origami_' + currentResolution + '.png';
     } 
 
     // Handle button state: Remove 'is-selected' from the previously active button and add it to the current button
@@ -176,9 +190,13 @@ function changeImageResolution(resolution, buttonElement) {
 
     // Update the image based on the selected resolution
     if (selectedImage === 'image1') {
-        document.getElementById("main-image").src = './images/emma_' + resolution + '.jpg';
-    } else if (selectedImage === 'image2') {
-        document.getElementById("main-image").src = './images/turian_' + resolution + '.jpg';
+        document.getElementById("main-image").src = './images/emma_' + currentResolution + '.jpg';
+    } 
+    else if (selectedImage === 'image2') {
+        document.getElementById("main-image").src = './images/turian_' + currentResolution + '.jpg';
+    } 
+    else if (selectedImage === 'image3') {
+        document.getElementById("main-image").src = './images/origami_' + currentResolution + '.png';
     } 
 
     // Handle button state: Remove 'is-selected' from the previously active button and add it to the current button

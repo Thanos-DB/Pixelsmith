@@ -161,7 +161,10 @@
                                     data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x4 - 2048x2048 (Ours)" alt="Image 9" onclick="selectImage(this)">
                             
                             <img src="./images/waterfall_hd.jpg" data-low-res="./images/waterfall_hd.jpg" data-high-res="./images/waterfall_giga.jpg"
-                                    data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x16 - 5440x3072 (Ours)" alt="Image 10" onclick="selectImage(this)">
+                            data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x16 - 5440x3072 (Ours)" alt="Image 10" onclick="selectImage(this)">
+
+                            <img src="./images/gladiator_hd.png" data-low-res="./images/gladiator_hd.png" data-high-res="./images/gladiator_giga.png"
+                            data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x4 - 2720x1536 (Ours)" alt="Image 11" onclick="selectImage(this)">
                         </div>
                     </div>
 
@@ -219,6 +222,35 @@
     </div>
 </div>
 
+
+<div class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h2 class="title is-3">Slider</h2>
+                    <p>
+                    Adjusting The Slider changes the image’s balance between detail and structure. Moving left adds fine details but creates artifacts, while moving right improves overall structure but loses detail. Depending on the image, there is an ideal slider position which offers the best balance, preserving structure and adding extra content.
+                    </p>
+                    <br>
+                    <div class="images-slider-demo">
+                        <div class="image-slider-demo-container">
+                            <h3 class="title is-5"> Base resolution (1024x1024)</h3>
+                            <img src="./images/slider/cyberpunk_x1.png" alt="reference" width="512" height="auto">
+                        </div>
+                        <div class="image-slider-demo-container">
+                            <h3 class="title is-5"> Higher resolution (2048x2048)</h3>
+                            <img id="image-slider-base" src="./images/slider/cyberpunk_x4_2.png" alt="x4" width="512" height="auto">
+                        </div>
+                    </div>
+                    <div id="sliderValue">Slider value: 25</div>
+                    <input type="range" min="2" max="25" value="25" id="slider-demo">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="hero">
     <div class="hero-body">
         <div class="container is-max-desktop">
@@ -230,7 +262,7 @@
                         We present a flexible image generation process where an initial image produced by the base model can be directly enhanced to any higher resolution. 
                         This method eliminates the need for intermediate steps, allowing for seamless generation of higher-resolution images in a single iteration.
                     </p>
-                    <img src="./images/multi_step.png" alt="Image Multi" style="width: 80%; height: auto;">
+                    <img src="./images/multi_step.png" alt="Multi" style="width: 70%; height: auto;">
                     <br><br>
                     <p>
                         We present a few examples of a two-step image generation process. <br>
@@ -242,7 +274,8 @@
                         <h3>Select an image:</h3>
                         <br>
                         <button class="external-link button is-normal is-rounded" onclick="selectImage2('image1', this)">Girl</button>
-                        <button  class="external-link button is-normal is-rounded" onclick="selectImage2('image2', this)">Alien</button>     
+                        <button class="external-link button is-normal is-rounded" onclick="selectImage2('image2', this)">Alien</button>     
+                        <button class="external-link button is-normal is-rounded" onclick="selectImage2('image3', this)">Dragon</button>     
                     </div>    
                     <br> 
 
@@ -312,6 +345,7 @@
 <script src="./js/zoom-giga.js"></script>
 <script src="./js/carousel.js"></script>
 <script src="./js/static_carousel.js"></script>
+<script src="./js/slider.js"></script>
 
 </body>
 </html>

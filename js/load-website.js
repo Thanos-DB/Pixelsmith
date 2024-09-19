@@ -20,6 +20,7 @@ const highResImages = [
     './images/mars_landscape_giga.jpg',  
     './images/van_gogh_giga.jpg', 
     './images/waterfall_giga.jpg',  
+    './images/gladiator_giga.jpg',  
 ];
 
 function preloadImages(imageList) {

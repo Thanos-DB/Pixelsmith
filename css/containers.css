@@ -130,7 +130,7 @@ color: rgba(0,0,0,.7);
 
 .carousel-container img {
     flex-shrink: 0; /* Prevent shrinking */
-    width: 150px;
+    width: auto;
     height: 150px;
     margin-right: 10px; /* Optional: Add spacing between images */
 }
@@ -283,4 +283,30 @@ animation: slide 20s linear infinite;
 
 .giga-zoom-lens, #giga-zoom-lens-left, #giga-zoom-lens-right, #giga-lens-divider {
     pointer-events: none;
+}
+
+.images-slider-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.image-slider-demo-container {
+margin: 0 20px;
+}
+.image-slider-demo-container img {
+max-width: 512px;
+height: auto;
+}
+
+#slider-demo {
+    width: 400px; /* Adjust this value for a longer slider bar */
+    margin-top: 20px;
+  }
+
+#sliderValue {
+    top: -30px;
+    left: 50%;
+    font-size: 18px;
+    font-weight: bold;
 }
