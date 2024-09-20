@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Comparison with Background</title>
+
+    <meta property="og:title" content="Is One GPU Enough? Pushing Image Generation at Higher-Resolutions with Foundation Models"/>
+    <meta property="og:description" content="Pixelsmith official website"/>
+    <meta property="og:url" content="https://thanos-db.github.io/Pixelsmith"/>
+    <meta property="og:image" content="./images/pixelsmith.png" />
+    <meta property="og:image:width" content="512"/>
+    <meta property="og:image:height" content="512"/>
+
+    <!-- PNG icons for modern browsers -->
+    <link rel="icon" type="image/png" sizes="64x64" href="./images/pixelsmith.png">
+
+    <!-- Apple Touch Icon for iOS devices -->
+    <link rel="apple-touch-icon" sizes="64x64" href="./images/pixelsmith.png">
+  
+
     <link rel="stylesheet" href="./css/bulma.min.css">
     <link rel="stylesheet" href="./css/fontawesome.all.min.css">
     <link rel="stylesheet" href="./css/containers.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="preload" href="./images/galaxy_giga.jpg" as="image">
 </head>
 <body>
 
@@ -95,38 +124,48 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
 
-                    <h2 class="title is-3">One GPU is Enough!</h2>
+                    <h2 class="title is-3">One GPU is enough!</h2>
                     <!-- Carousel Section -->
                     <p>
-                        With <strong>Pixelsmith</strong>, you can scale pre-trained generative models to <br> effortlessly generate gigapixel-scale images on a single <u>Nvidia RTX 3090</u>. 
+                        With <strong>Pixelsmith</strong>, you can effortlessly scale pre-trained generative models to generate gigapixel-scale images on a <strong></strong>single Nvidia RTX 3090 (24GB VRAM)</strong>.
+                        <br> 
+                        <u>Note: It’s better to view the website on a computer for optimal experience.</u>
                         <br>        <br>       
-                        Select an image:          
-                        <br>        <br>  
+                        <h2 class="title is-5">Select an image:</h2>
                     </p>
+
                     <div class="carousel-container">
-                        <!-- Carousel Section -->
-                        <span class="arrow left" onclick="moveCarousel(-1)">&#10094;</span>
                         <div class="images-selection" id="image-carousel">
                             <img src="./images/girl_hd.jpg" data-low-res="./images/girl_hd.jpg" data-high-res="./images/girl_giga.jpg" 
-                            data-background-text="x1 (1024×1024)" data-foreground-text="x16 (4096×4096)" alt="Image 2" onclick="selectImage(this)">
+                            data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x16 - 4096x4096 (Ours)" alt="Image 2" onclick="selectImage(this)">
+                            
                             <img src="./images/small_world_hd.jpg" data-low-res="./images/small_world_hd.jpg" data-high-res="./images/small_world_giga.jpg" 
-                            data-background-text="x1 (1024×1024)" data-foreground-text="x16 (4096×4096)" alt="Image 3" onclick="selectImage(this)">
+                                    data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x16 - 4096x4096 (Ours)" alt="Image 3" onclick="selectImage(this)">
+                            
                             <img src="./images/jewels_hd.jpg" data-low-res="./images/jewels_hd.jpg" data-high-res="./images/jewels_giga.jpg"
-                            data-background-text="x1 (1360×768)" data-foreground-text="x16 (5440×3072)" alt="Image 4" onclick="selectImage(this)">
+                                    data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x16 - 5440x3072 (Ours)" alt="Image 4" onclick="selectImage(this)">
+                            
                             <img src="./images/lego_hd.jpg" data-low-res="./images/lego_hd.jpg" data-high-res="./images/lego_giga.jpg"
-                            data-background-text="x1 (1024×1024)" data-foreground-text="x16 (4096×4096)" alt="Image 5" onclick="selectImage(this)">
+                                    data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x16 - 4096x4096 (Ours)" alt="Image 5" onclick="selectImage(this)">
+                            
                             <img src="./images/fantasy_forest_hd.jpg" data-low-res="./images/fantasy_forest_hd.jpg" data-high-res="./images/fantasy_forest_giga.jpg"
-                            data-background-text="x1 (1360×768)" data-foreground-text="x256 (21760×12288)" alt="Image 6" onclick="selectImage(this)">
+                                    data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x256 - 21760x12288 (Ours)" alt="Image 6" onclick="selectImage(this)">
+                            
                             <img src="./images/heaven_hd.jpg" data-low-res="./images/heaven_hd.jpg" data-high-res="./images/heaven_giga.jpg"
-                            data-background-text="x1 (1024×1024)" data-foreground-text="x64 (8192×8192)" alt="Image 7" onclick="selectImage(this)">
+                                    data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x64 - 8192x8192 (Ours)" alt="Image 7" onclick="selectImage(this)">
+                            
                             <img src="./images/mars_landscape_hd.jpg" data-low-res="./images/mars_landscape_hd.jpg" data-high-res="./images/mars_landscape_giga.jpg"
-                            data-background-text="x1 (1360×768)" data-foreground-text="x64 (10880×6144)" alt="Image 8" onclick="selectImage(this)">
+                                    data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x64 - 10880x6144 (Ours)" alt="Image 8" onclick="selectImage(this)">
+                            
                             <img src="./images/van_gogh_hd.jpg" data-low-res="./images/van_gogh_hd.jpg" data-high-res="./images/van_gogh_giga.jpg"
-                            data-background-text="x1 (1024×1024)" data-foreground-text="x4 (2048×2048)" alt="Image 9" onclick="selectImage(this)">
+                                    data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x4 - 2048x2048 (Ours)" alt="Image 9" onclick="selectImage(this)">
+                            
                             <img src="./images/waterfall_hd.jpg" data-low-res="./images/waterfall_hd.jpg" data-high-res="./images/waterfall_giga.jpg"
-                            data-background-text="x1 (1360×768)" data-foreground-text="x16 (5440×3072)" alt="Image 10" onclick="selectImage(this)">
+                            data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x16 - 5440x3072 (Ours)" alt="Image 10" onclick="selectImage(this)">
+
+                            <img src="./images/gladiator_hd.png" data-low-res="./images/gladiator_hd.png" data-high-res="./images/gladiator_giga.png"
+                            data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x4 - 2720x1536 (Ours)" alt="Image 11" onclick="selectImage(this)">
                         </div>
-                        <span class="arrow right" onclick="moveCarousel(1)">&#10095;</span>
                     </div>
 
                     <!-- New Line / Space between Carousel and Comparison -->
@@ -154,16 +193,88 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
+                    <h2 class="title is-3">Methods</h2>
+
+                    <div class="static-carousel-wrapper">
+                        <div class="static-carousel-container">
+                            <div class="arrow left" id="prev">&#10094;</div>
+                            <div id="static-carousel-caption">First, given a conditional prompt $c$, we sample the latent variable $\tilde{z}_0$ and decode it into pixel space as $\tilde{x} = \mathcal{D}_\theta(\tilde{z}_0)$. 
+                                <br>In this step, we generate an image with a base resolution of $1024^2$ using StableDiffusionXL.</div>
+                            <img id="static-carousel-id" src="./images/steps/step1.png" alt="step1">
+                            <div class="arrow right" id="next">&#10095;</div>
+
+                                <!-- Hidden divs containing the images and captions -->
+                            <div id="sliderData" style="display: none;">
+                                <div data-src="./images/steps/step1.png" data-caption="First, given a conditional prompt $c$, we sample the latent variable $\tilde{z}_0$ and decode it into pixel space as $\tilde{x} = \mathcal{D}_\theta(\tilde{z}_0)$. In this step, we generate an image with a base resolution of $1024^2$ using StableDiffusionXL."></div>
+                                <div data-src="./images/steps/step2.png" data-caption="We apply an upsampling algorithm to increase the resolution of the image. The upsampling algorithm leads to a blurred output and lack of additional content. This upsampled image $x^{guid}$ will serve as guidance for our generative process."></div>
+                                <div data-src="./images/steps/step3.png" data-caption="We encode the upsampled image in the VAE's latent space $z_0^{guid}=\mathcal{E_\theta}(x^{guid})$. We can easily sample each latent variable of the diffusion process through the forward diffusion process $z^{guid}_t \sim q(z^{guid}_t|z^{guid}_0)$."></div>
+                                <div data-src="./images/steps/step4.png" data-caption="The generative process starts from $z_T \sim \mathcal{N}(0,I)$, which has the same dimensions as $z^{guid}_T$. The Slider’s position , indicated by a blue line, determines whether the guidance mechanism  or unguided patch denoising will be applied. The Slider allows control over whether a generated image will be slightly or significantly altered compared to the previous resolution."></div>
+                                <div data-src="./images/steps/step5a.png" data-caption="At each timestep, random patches are selected for denoising. This process is repeated until the entire latent space is denoised. Since each pixel is denoised only once per timestep, we track which areas have been denoised and avoid selecting those areas again."></div>
+                                <div data-src="./images/steps/step5b.png" data-caption="The guidance mechanism fuses the $\hat{z}^{guid}_t$, $\hat{z}_t$ and $\hat{z}^{guid}_{t-1}$ random patches to generate the $\hat{z}_{t-1}$ patch.First, the $\hat{z}^{guid}_t$ and $\hat{z}_t$ patches are transformed to the Fourier space using a Fast Fourier Transformation ($\mathcal{FFT}$), where their phases $\phi$ are averaged. The phase is then combined with the amplitude, which is then transformed back to the spatial domain."></div>
+                                <div data-src="./images/steps/step5c.png" data-caption="One of the main reasons that patch based image generation in diffusion models suffers from artifacts at higher resolutions is that while denoising patches, each patch contains the same text prompt as the prompt condition for the overall image. To address this, we combine the sampled $\hat{z}^{iFFT}_{t}$ with the image guidance $\hat{z}^{guid}_{t}$ using a chess-like mask"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h2 class="title is-3">Slider</h2>
+                    <p>
+                    Adjusting the Slider position changes the image’s balance between detail and structure. Moving left adds fine details but creates artifacts, while moving right improves overall structure but loses detail. Depending on the image, there is an ideal slider position which offers the best balance, preserving structure and adding extra content.
+                    </p>
+                    <br>
+                    <div class="images-slider-demo">
+                        <div class="image-slider-demo-container">
+                            <h3 class="title is-5"> Base resolution (1024x1024)</h3>
+                            <img src="./images/slider/fox_x1.png" alt="reference" width="512" height="auto">
+                        </div>
+                        <div class="image-slider-demo-container">
+                            <h3 class="title is-5"> Higher resolution (2048x2048)</h3>
+                            <img id="image-slider-base" src="./images/slider/fox_x4_25.png" alt="x4" width="512" height="auto">
+                        </div>
+                    </div>
+                    <div id="sliderValue">Slider value: 25</div>
+                    <div class="bar-container">
+                        <p class="bar-label">Weak guidance</p>
+                        <input type="range" min="1" max="49" value="25" id="slider-demo">
+                        <p class="bar-label">Strong guidance</p>
+                    </div>
+                    
+                    <br>
+                    <p style="font-size: 12px;">
+                        prompt: "raw image, hyperrealistic, giant dark Mononoke monster, ethereal fox, seven tails, translucent dark-red blood-filled firefox, intricately woven ribbon tail, ancestral strength and resilience, atmospheric haze, film grain, cinematic film still, shallow depth of field, highly detailed, high budget, cinemascope, moody epic atmosphere, photorealistic, candid camera, color graded"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
                     
                     <h2 class="title is-3">Improving the base generation</h2>
                     <p>
                         We present a flexible image generation process where an initial image produced by the base model can be directly enhanced to any higher resolution. 
                         This method eliminates the need for intermediate steps, allowing for seamless generation of higher-resolution images in a single iteration.
                     </p>
-                    <img src="./images/multi_step.png" alt="Image Multi" style="width: 80%; height: auto;">
+                    <img src="./images/multi_step.png" alt="Multi" style="width: 70%; height: auto;">
                     <br><br>
                     <p>
-                        We present an example of a two-step image generation process. <br>
+                        We present a few examples of a two-step image generation process. <br>
                         Zoom-in to visualize progressively enhanced details (e.g. face, hands, hair)
                         <br><br>       
                     </p>
@@ -171,17 +282,18 @@
                     <div id="image-selector">
                         <h3>Select an image:</h3>
                         <br>
-                        <button class="external-link button is-normal is-rounded is-dark" onclick="selectImage2('image1', this)">Girl</button>
-                        <button  class="external-link button is-normal is-rounded is-dark" onclick="selectImage2('image2', this)">Alien</button>     
+                        <button class="external-link button is-normal is-rounded" onclick="selectImage2('image1', this)">Girl</button>
+                        <button class="external-link button is-normal is-rounded" onclick="selectImage2('image2', this)">Alien</button>     
+                        <button class="external-link button is-normal is-rounded" onclick="selectImage2('image3', this)">Dragon</button>     
                     </div>    
                     <br> 
 
                     Choose the resolution:          
                     <br><br>  
                     <div id="resolution-selector" style="display: none;">
-                        <button class="external-link button is-normal is-rounded is-dark" onclick="changeImageResolution('1024', this)">1024×1024</button>
-                        <button class="external-link button is-normal is-rounded is-dark" onclick="changeImageResolution('2048', this)">2048×2048</button>
-                        <button class="external-link button is-normal is-rounded is-dark" onclick="changeImageResolution('4096', this)">4096×4096</button>
+                        <button class="external-link button is-normal is-rounded" onclick="changeImageResolution('1024', this)">1024×1024</button>
+                        <button class="external-link button is-normal is-rounded" onclick="changeImageResolution('2048', this)">2048×2048</button>
+                        <button class="external-link button is-normal is-rounded" onclick="changeImageResolution('4096', this)">4096×4096</button>
                     </div>
                     <br><br>  
                 
@@ -196,8 +308,35 @@
 </div>
 
 
+<div class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    
+                    <h2 class="title is-3">Gigapixel images on a single GPU</h2>
+                    <p>
+                        Move the cursor over the image to zoom-in. <br>The left side of the lens displays the 1024×1024px image, while the right side showcases the 31616×31616px gigapixel image.​<br>
+                        Note: we resized the gigapixel image to a lower resolution for faster visualization.
+                    </p>
+                    <div id="giga-container" class="giga-container">
+                        <img id="giga-image" src="./images/galaxy_hd.jpg" alt="Gigapixel image" style="width:100%; height:100%;">
+                    </div>
+                    <div id="giga-lens" class="giga-zoom-lens">
+                        <div id="giga-lens-divider"></div> 
+                        <div id="giga-lens-left" style="position:absolute; width:50%; height:100%; left:0; top:0;"></div>
+                        <div id="giga-lens-right" style="position:absolute; width:50%; height:100%; right:0; top:0;"></div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
+    <div class="container is-max-desktop">
       <h2 class="title">BibTeX</h2>
       <pre><code>@misc{tragakis2024gpu,
         title={Is One GPU Enough? Pushing Image Generation at Higher-Resolutions with Foundation Models}, 
@@ -210,9 +349,12 @@
     </div>
 </section>
 
-    
 <script src="./js/load-website.js"></script>
 <script src="./js/zoom.js"></script>
+<script src="./js/zoom-giga.js"></script>
 <script src="./js/carousel.js"></script>
+<script src="./js/static_carousel.js"></script>
+<script src="./js/slider.js"></script>
+
 </body>
 </html>

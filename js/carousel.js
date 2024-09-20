@@ -1,6 +1,64 @@
-let carouselIndex = 0;
-const images = document.querySelectorAll('.images-selection img');
+let currentPosition = 0;
+let slideWidth;  // Dynamically calculated based on each image's width
+let totalSlides; // Total slides after cloning
+let totalOriginalSlides; // Original number of slides before cloning
+const resetOffset = 300;  // Adjust this value to control how early the reset happens
 
+function moveCarouselContinuously() {
+    const carousel = document.querySelector('.carousel-container');
+
+    // Move the carousel continuously
+    currentPosition -= 1; // Move 1px at a time
+
+    // Reset earlier before the last set fully scrolls out of view
+    if (currentPosition <= -(slideWidth * totalOriginalSlides) + resetOffset) {
+        currentPosition = 0; // Reset to the start earlier
+    }
+
+    carousel.style.transform = `translateX(${currentPosition}px)`;
+}
+
+// Clone the images to create a continuous effect
+function cloneImages() {
+    const slides = document.querySelectorAll('.carousel-container img');
+    const carousel = document.querySelector('.carousel-container');
+    totalOriginalSlides = slides.length;
+
+    // Clone each slide three times to ensure a minimum of 3 clones
+    for (let i = 0; i < 7; i++) {
+        slides.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            carousel.appendChild(clone);
+        });
+    }
+
+    // After cloning, update the total number of slides
+    totalSlides = document.querySelectorAll('.carousel-container img').length;
+}
+
+// Adjust the width of each slide
+function adjustSlideWidth() {
+    const slides = document.querySelectorAll('.carousel-container img');
+    slideWidth = slides[0].offsetWidth; // Use the width of the first slide as reference
+}
+
+// Start the continuous scroll
+function startContinuousCarousel() {
+    adjustSlideWidth();  // Set slide width on load
+    cloneImages();  // Clone the images after widths are adjusted
+    setInterval(moveCarouselContinuously, 10); // Move every 10ms for a smooth transition
+}
+
+// Adjust the slide width when the window is resized
+window.addEventListener('resize', adjustSlideWidth);
+
+// Initialize the carousel when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    startContinuousCarousel();
+});
+
+
+// Function to select an image from the carousel
 function selectImage(img) {
     const backgroundImage = img.getAttribute('data-low-res');
     const foregroundImage = img.getAttribute('data-high-res');
@@ -22,50 +80,6 @@ function selectImage(img) {
         document.getElementById('image-comparison').style.width = backgroundImageElement.naturalWidth + 'px';
         document.getElementById('image-comparison').style.height = backgroundImageElement.naturalHeight + 'px';
     };
-}
-
-function moveCarousel(direction) {
-    const container = document.getElementById('image-carousel');
-    const totalImages = images.length;
-    
-    // Update the index (loop around using modulo)
-    carouselIndex = (carouselIndex + direction + totalImages) % totalImages;
-
-    // Calculate scroll position based on the widths of previous images
-    let scrollPosition = 0;
-    for (let i = 0; i < carouselIndex; i++) {
-        scrollPosition += images[i].offsetWidth; // Get the actual width of each image
-    }
-
-    // Scroll to the correct position dynamically
-    container.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-    });
-
-    // Check if we need to loop back to the first image after the last image
-    if (carouselIndex === 0 && direction === 1) {
-        setTimeout(() => {
-            container.scrollTo({
-                left: 0,
-                behavior: 'auto'  // Instantly jump to the start after the transition
-            });
-        }, 500); // Small delay to allow the smooth scroll to finish
-    }
-
-    // Check if we need to loop back to the last image when moving backward from the first
-    if (carouselIndex === totalImages - 1 && direction === -1) {
-        let lastScrollPosition = 0;
-        for (let i = 0; i < totalImages; i++) {
-            lastScrollPosition += images[i].offsetWidth;
-        }
-        setTimeout(() => {
-            container.scrollTo({
-                left: lastScrollPosition,
-                behavior: 'auto'  // Instantly jump to the last image after the transition
-            });
-        }, 500); // Small delay to allow the smooth scroll to finish
-    }
 }
 
 const slider = document.getElementById('slider');
@@ -95,6 +109,16 @@ const imagesResolutions = {
         low: './images/turian_1024.jpg',
         medium: './images/turian_2048.jpg',
         high: './images/turian_4096.jpg'
+    },
+    gladiator: {
+        low: './images/gladiator_1024.png',
+        medium: './images/gladiator_2048.png',
+        high: './images/gladiator_4096.png'
+    },
+    origami: {
+        low: './images/origami_1024.png',
+        medium: './images/origami_2048.png',
+        high: './images/origami_4096.png'
     },
     // Add more images and their respective resolutions here
 };
@@ -137,19 +161,23 @@ function selectImage2(image, buttonElement) {
     // Display the selected image at the current resolution
     if (image === 'image1') {
         document.getElementById("main-image").src = './images/emma_' + currentResolution + '.jpg';
-    } else if (image === 'image2') {
+    } 
+    else if (image === 'image2') {
         document.getElementById("main-image").src = './images/turian_' + currentResolution + '.jpg';
+    } 
+    else if (image === 'image3') {
+        document.getElementById("main-image").src = './images/origami_' + currentResolution + '.png';
     } 
 
     // Handle button state: Remove 'is-selected' from the previously active button and add it to the current button
     if (activeButton) {
-        activeButton.classList.remove('is-light'); // Remove 'is-selected' from previous button
-        activeButton.classList.add('is-dark'); // Add 'is-dark' back to the previous button
+        activeButton.classList.remove('is-dark'); 
+        activeButton.classList.add('is-light');
     }
     
     // Add 'is-selected' class to the currently pressed button
-    buttonElement.classList.remove('is-dark'); // Remove 'is-dark' from current button
-    buttonElement.classList.add('is-light'); // Add 'is-selected' to current button
+    buttonElement.classList.add('is-dark'); 
+    buttonElement.classList.remove('is-light');
 
 
     // Update the reference to the active button
@@ -162,20 +190,24 @@ function changeImageResolution(resolution, buttonElement) {
 
     // Update the image based on the selected resolution
     if (selectedImage === 'image1') {
-        document.getElementById("main-image").src = './images/emma_' + resolution + '.jpg';
-    } else if (selectedImage === 'image2') {
-        document.getElementById("main-image").src = './images/turian_' + resolution + '.jpg';
+        document.getElementById("main-image").src = './images/emma_' + currentResolution + '.jpg';
+    } 
+    else if (selectedImage === 'image2') {
+        document.getElementById("main-image").src = './images/turian_' + currentResolution + '.jpg';
+    } 
+    else if (selectedImage === 'image3') {
+        document.getElementById("main-image").src = './images/origami_' + currentResolution + '.png';
     } 
 
     // Handle button state: Remove 'is-selected' from the previously active button and add it to the current button
     if (activeButton2) {
-        activeButton2.classList.remove('is-light'); // Remove 'is-selected' from previous button
-        activeButton2.classList.add('is-dark'); // Add 'is-dark' back to the previous button
+        activeButton2.classList.remove('is-dark');
+        activeButton2.classList.add('is-light'); 
     }
     
     // Add 'is-selected' class to the currently pressed button
-    buttonElement.classList.remove('is-dark'); // Remove 'is-dark' from current button
-    buttonElement.classList.add('is-light'); // Add 'is-selected' to current button
+    buttonElement.classList.remove('is-light');
+    buttonElement.classList.add('is-dark');
 
 
     // Update the reference to the active button
