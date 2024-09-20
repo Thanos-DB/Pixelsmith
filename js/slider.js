@@ -5,7 +5,7 @@ const sliderValue = document.getElementById("sliderValue");
 // Change image and update slider value on input
 sliderBar.addEventListener("input", function() {
   const imageIndex = sliderBar.value;
-  sliderBaseImage.src = `./images/slider/cyberpunk_x4_${imageIndex}.png`; // Change the image
+  sliderBaseImage.src = `./images/slider/fox_x4_${imageIndex}.png`; // Change the image
   sliderValue.textContent = `Slider value: ${imageIndex}`; // Update the displayed slider value
   
   // Adjust the position of the value display based on slider position

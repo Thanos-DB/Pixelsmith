@@ -310,3 +310,16 @@ height: auto;
     font-size: 18px;
     font-weight: bold;
 }
+
+.bar-container {
+    display: flex;
+    align-items: center; /* Vertically centers the content */
+    justify-content: space-between;
+    width: 100%; /* Adjust this width as needed */
+    max-width: 500px; /* Adjust max width for the slider container */
+    margin: 0px auto; /* Center the slider on the page */
+  }
+  .bar-label {
+    font-size: 12px;
+    margin: 0; /* Remove margin to keep text aligned vertically */
+  }

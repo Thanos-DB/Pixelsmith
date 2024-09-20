@@ -230,21 +230,30 @@
                 <div class="column has-text-centered">
                     <h2 class="title is-3">Slider</h2>
                     <p>
-                    Adjusting The Slider changes the image’s balance between detail and structure. Moving left adds fine details but creates artifacts, while moving right improves overall structure but loses detail. Depending on the image, there is an ideal slider position which offers the best balance, preserving structure and adding extra content.
+                    Adjusting the Slider position changes the image’s balance between detail and structure. Moving left adds fine details but creates artifacts, while moving right improves overall structure but loses detail. Depending on the image, there is an ideal slider position which offers the best balance, preserving structure and adding extra content.
                     </p>
                     <br>
                     <div class="images-slider-demo">
                         <div class="image-slider-demo-container">
                             <h3 class="title is-5"> Base resolution (1024x1024)</h3>
-                            <img src="./images/slider/cyberpunk_x1.png" alt="reference" width="512" height="auto">
+                            <img src="./images/slider/fox_x1.png" alt="reference" width="512" height="auto">
                         </div>
                         <div class="image-slider-demo-container">
                             <h3 class="title is-5"> Higher resolution (2048x2048)</h3>
-                            <img id="image-slider-base" src="./images/slider/cyberpunk_x4_30.png" alt="x4" width="512" height="auto">
+                            <img id="image-slider-base" src="./images/slider/fox_x4_25.png" alt="x4" width="512" height="auto">
                         </div>
                     </div>
                     <div id="sliderValue">Slider value: 25</div>
-                    <input type="range" min="2" max="31" value="31" id="slider-demo">
+                    <div class="bar-container">
+                        <p class="bar-label">Weak guidance</p>
+                        <input type="range" min="1" max="49" value="25" id="slider-demo">
+                        <p class="bar-label">Strong guidance</p>
+                    </div>
+                    
+                    <br>
+                    <p style="font-size: 12px;">
+                        prompt: "raw image, hyperrealistic, giant dark Mononoke monster, ethereal fox, seven tails, translucent dark-red blood-filled firefox, intricately woven ribbon tail, ancestral strength and resilience, atmospheric haze, film grain, cinematic film still, shallow depth of field, highly detailed, high budget, cinemascope, moody epic atmosphere, photorealistic, candid camera, color graded"
+                    </p>
                 </div>
             </div>
         </div>
