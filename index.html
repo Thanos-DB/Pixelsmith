@@ -7,15 +7,15 @@
     <meta property="og:title" content="Is One GPU Enough? Pushing Image Generation at Higher-Resolutions with Foundation Models"/>
     <meta property="og:description" content="Pixelsmith official website"/>
     <meta property="og:url" content="https://thanos-db.github.io/Pixelsmith"/>
-    <meta property="og:image" content="./images/pixelsmith.png" />
+    <meta property="og:image" content="./images/favicon.ico" />
     <meta property="og:image:width" content="512"/>
     <meta property="og:image:height" content="512"/>
 
     <!-- PNG icons for modern browsers -->
-    <link rel="icon" type="image/png" sizes="64x64" href="./images/pixelsmith.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="./images/favicon.ico">
 
     <!-- Apple Touch Icon for iOS devices -->
-    <link rel="apple-touch-icon" sizes="64x64" href="./images/pixelsmith.png">
+    <link rel="apple-touch-icon" sizes="64x64" href="./images/favicon.ico">
   
 
     <link rel="stylesheet" href="./css/bulma.min.css">
@@ -66,13 +66,12 @@
                         <span class="glasgow"><sup>1</sup>University of Glasgow</span>
                         <span class="dotphoton"><sup>2</sup>Dotphoton</span>
                         <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                    </div>
-            
+                    </div> 
                     <div class="column has-text-centered">
                         <div class="publication-links">
 
                             <span class="link-block">
-                                <a href="https://arxiv.org/abs/2406.07251.pdf" target="_blank"
+                                <a href="./paper/pixelsmith.pdf" target="_blank"
                                 class="external-link button is-normal is-rounded is-dark">
                                 <span>Paper</span>
                                 </a>
@@ -87,12 +86,29 @@
                             </span>
                         
                             <!-- ArXiv abstract Link -->
-                            <span class="link-block">
+                            <!-- <span class="link-block">
                                 <a href="https://arxiv.org/abs/2406.07251" target="_blank"
                                 class="external-link button is-normal is-rounded is-dark">
                                 <span>arXiv</span>
                                 </a>
-                            </span>
+                            </span> -->
+                            <br><br>
+                            <p><small>Star this repository on GitHub to show your support and help others discover it.</small></p>
+                            <br>
+                            <!-- GitHub Star Button -->
+                             <!-- Place this tag in your head or just before your close body tag. -->
+                            <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+                            <!-- Place this tag where you want the button to render. -->
+                            <a class="github-button"
+                            href="https://github.com/Thanos-DB/Pixelsmith"
+                            data-icon="octicon-star"
+                            data-size="large"
+                            data-show-count="true"
+                            aria-label="Star Thanos-DB/Pixelsmith on GitHub">Star</a>
+                            <!-- <a class="github-button" href="https://github.com/Thanos-DB/Pixelsmith" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Thanos-DB/Pixelsmith on GitHub">Star</a>
+                            <script async defer src="https://buttons.github.io/buttons.js"></script>
+                            <iframe src="https://ghbtns.com/github-btn.html?user=twbs&repo=bootstrap&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe> -->
                         </div>
                     </div>
                 </div>
@@ -129,7 +145,7 @@
                     <p>
                         With <strong>Pixelsmith</strong>, you can effortlessly scale pre-trained generative models to generate gigapixel-scale images on a <strong></strong>single Nvidia RTX 3090 (24GB VRAM)</strong>.
                         <br> 
-                        <u>Note: It’s better to view the website on a computer for optimal experience.</u>
+                        <u>Note: For the best experience, it’s recommended to view the website on a computer.</u>
                         <br>        <br>       
                         <h2 class="title is-5">Select an image:</h2>
                     </p>
@@ -148,12 +164,18 @@
                             <img src="./images/lego_hd.jpg" data-low-res="./images/lego_hd.jpg" data-high-res="./images/lego_giga.jpg"
                                     data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x16 - 4096x4096 (Ours)" alt="Image 5" onclick="selectImage(this)">
                             
+                            <img src="./images/racoon_hd.jpg" data-low-res="./images/racoon_hd.jpg" data-high-res="./images/racoon_giga.jpg"
+                            data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x116 - 2048x2048 (Ours)" alt="racoon" onclick="selectImage(this)">
+
                             <img src="./images/fantasy_forest_hd.jpg" data-low-res="./images/fantasy_forest_hd.jpg" data-high-res="./images/fantasy_forest_giga.jpg"
                                     data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x256 - 21760x12288 (Ours)" alt="Image 6" onclick="selectImage(this)">
                             
                             <img src="./images/heaven_hd.jpg" data-low-res="./images/heaven_hd.jpg" data-high-res="./images/heaven_giga.jpg"
                                     data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x64 - 8192x8192 (Ours)" alt="Image 7" onclick="selectImage(this)">
                             
+                            <img src="./images/deniro_hd.jpg" data-low-res="./images/deniro_hd.jpg" data-high-res="./images/deniro_giga.jpg"
+                            data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x116 - 4096x4096 (Ours)" alt="Image 13" onclick="selectImage(this)">
+
                             <img src="./images/mars_landscape_hd.jpg" data-low-res="./images/mars_landscape_hd.jpg" data-high-res="./images/mars_landscape_giga.jpg"
                                     data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x64 - 10880x6144 (Ours)" alt="Image 8" onclick="selectImage(this)">
                             
@@ -165,6 +187,9 @@
 
                             <img src="./images/gladiator_hd.png" data-low-res="./images/gladiator_hd.png" data-high-res="./images/gladiator_giga.png"
                             data-background-text="x1 - 1360x768 (StableDiffusionXL)" data-foreground-text="x4 - 2720x1536 (Ours)" alt="Image 11" onclick="selectImage(this)">
+
+                            <img src="./images/zebra_hd.jpg" data-low-res="./images/zebra_hd.jpg" data-high-res="./images/zebra_giga.jpg"
+                            data-background-text="x1 - 1024x1024 (StableDiffusionXL)" data-foreground-text="x116 - 4096x4096 (Ours)" alt="Image 12" onclick="selectImage(this)">
                         </div>
                     </div>
 
@@ -250,11 +275,11 @@
                         <p class="bar-label">Strong guidance</p>
                     </div>
                     
-                    <br>
+                    <!-- <br>
                     <p style="font-size: 12px;">
                         prompt: "raw image, hyperrealistic, giant dark Mononoke monster, ethereal fox, seven tails, translucent dark-red blood-filled firefox, intricately woven ribbon tail, ancestral strength and resilience, atmospheric haze, film grain, cinematic film still, shallow depth of field, highly detailed, high budget, cinemascope, moody epic atmosphere, photorealistic, candid camera, color graded"
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -269,12 +294,12 @@
                     <h2 class="title is-3">Improving the base generation</h2>
                     <p>
                         We present a flexible image generation process where an initial image produced by the base model can be directly enhanced to any higher resolution. 
-                        This method eliminates the need for intermediate steps, allowing for seamless generation of higher-resolution images in a single iteration.
+                        This method eliminates the need for intermediate steps, allowing for seamless generation of higher-resolution images in a single iteration. 
                     </p>
                     <img src="./images/multi_step.png" alt="Multi" style="width: 70%; height: auto;">
                     <br><br>
                     <p>
-                        We present a few examples of a two-step image generation process. <br>
+                        We show a few examples of a two-steps image generation process. <br>
                         Zoom-in to visualize progressively enhanced details (e.g. face, hands, hair)
                         <br><br>       
                     </p>
@@ -316,7 +341,7 @@
                     
                     <h2 class="title is-3">Gigapixel images on a single GPU</h2>
                     <p>
-                        Move the cursor over the image to zoom-in. <br>The left side of the lens displays the 1024×1024px image, while the right side showcases the 31616×31616px gigapixel image.​<br>
+                        Move the cursor over the image to zoom-in. <br>The left side of the lens displays the 1024×1024px image, while the right side showcases the 32768×32768px gigapixel image.​<br>
                         Note: we resized the gigapixel image to a lower resolution for faster visualization.
                     </p>
                     <div id="giga-container" class="giga-container">
