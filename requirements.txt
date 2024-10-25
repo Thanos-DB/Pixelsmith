@@ -1,0 +1,8 @@
+accelerate==0.26.1
+diffusers==0.25.1
+ipykernel==6.29.0
+matplotlib==3.8.2
+numpy==1.26.3
+tqdm==4.65.0
+transformers==4.37.0
+xformers==0.0.25
