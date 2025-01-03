@@ -44,6 +44,13 @@ hr_image_4 = generate_image(seed=seed, prompt=prompt, negative_prompt=negative_p
 ```
 An example can be found in [getting_started.ipynb](https://github.com/Thanos-DB/Pixelsmith/blob/main/getting_started.ipynb)
 
+## 🥇Comparisons
+
+<img src='./images/qc1.png'>
+<img src='./images/comparisons.png'>
+<img src='./images/qc2.png'>
+
+
 ## 📆History
 - __[2024.10.25]__: Code release.
 - __[2024.10.25]__: [Project page](https://thanos-db.github.io/Pixelsmith/) release.
