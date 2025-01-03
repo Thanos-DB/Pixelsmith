@@ -19,7 +19,6 @@ conda activate pixelsmith
 conda install pytorch=2.2.1 torchvision=0.17.1 pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 ```
-Copy/paste `autoencoder_kl.py` and `vae.py` in your environment (f.i. `/home/user/miniconda3/envs/pixelsmith/lib/python3.11/site-packages/diffusers/models/autoencoders/`)
 
 ## 🚀Image generation
 ```

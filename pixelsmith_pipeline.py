@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['figure.dpi'] = 300
 
 #+#
+from autoencoder_kl import AutoencoderKL
 from packaging import version
 from transformers import (
     CLIPImageProcessor,
@@ -23,7 +24,7 @@ from diffusers.loaders import (
     StableDiffusionXLLoraLoaderMixin,
     TextualInversionLoaderMixin,
 )
-from diffusers.models import AutoencoderKL, ImageProjection, UNet2DConditionModel
+from diffusers.models import ImageProjection, UNet2DConditionModel
 from diffusers.models.attention_processor import (
     AttnProcessor2_0,
     FusedAttnProcessor2_0,
@@ -90,7 +91,7 @@ from diffusers.loaders import (
     StableDiffusionXLLoraLoaderMixin,
     TextualInversionLoaderMixin,
 )
-from diffusers.models import AutoencoderKL, ImageProjection, UNet2DConditionModel
+from diffusers.models import ImageProjection, UNet2DConditionModel
 from diffusers.models.attention_processor import (
     AttnProcessor2_0,
     FusedAttnProcessor2_0,
