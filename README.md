@@ -52,7 +52,7 @@ An example can be found in [getting_started.ipynb](https://github.com/Thanos-DB/
 
 
 ## 📆History
-- __[2025.01.04]__: Pixelsmith is implemented in [automatic](https://github.com/vladmandic/automatic). Many thanks to [Vladimir Mandic](https://github.com/vladmandic)
+- __[2025.01.04]__: Pixelsmith is implemented in [automatic](https://github.com/vladmandic/automatic). Many thanks to [Vladimir Mandic](https://github.com/vladmandic)!
 - __[2024.10.25]__: Code release.
 - __[2024.10.25]__: [Project page](https://thanos-db.github.io/Pixelsmith/) release.
 - __[2024.09.25]__: :fire: Pixelsmith has been accepted to NeurIPS 2024!
