@@ -66,13 +66,12 @@ If you wish to use this software for commercial purposes without restrictions, p
 
 ## 📚Citation
 ```bib
-	@misc{tragakis2024gpuenoughpushingimage,
-	title={Is One GPU Enough? Pushing Image Generation at Higher-Resolutions with Foundation Models}, 
-      	author={Athanasios Tragakis and Marco Aversa and Chaitanya Kaul and Roderick Murray-Smith and Daniele Faccio},
-      	year={2024},
-      	eprint={2406.07251},
-      	archivePrefix={arXiv},
-      	primaryClass={cs.CV},
-      	url={https://arxiv.org/abs/2406.07251}, 
+	@article{tragakis2025one,
+		title={Is One GPU Enough? Pushing Image Generation at Higher-Resolutions with Foundation Models.},
+		author={Tragakis, Athanasios and Aversa, Marco and Kaul, Chaitanya and Murray-Smith, Roderick and Faccio, Daniele},
+		journal={Advances in Neural Information Processing Systems},
+		volume={37},
+		pages={41242--41273},
+		year={2025}
 	}
 ```
